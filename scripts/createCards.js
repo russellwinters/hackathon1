@@ -1,36 +1,4 @@
-let testArr = [
-  {
-    name: "Boulder",
-    symbol: "AAA",
-    iexID: "$152.53"
-  },
-  {
-    name: "Liberty INT",
-    symbol: "SHI",
-    iexID: "$532.53"
-  },
-  {
-    name: "Newark",
-    symbol: "POO",
-    iexID: "$12.53"
-  },
-  {
-    name: "Dunno",
-    symbol: "jgk",
-    iexID: "$976.53"
-  },
-  {
-    name: "Kingston",
-    symbol: "ygk",
-    iexID: "$1000.53"
-  },
-  {
-    name: "Vancouver",
-    symbol: "YVR",
-    iexID: "$365.53"
-  }
-];
-
+//function creates a card and populates it for every object of the array that is passed through it
 function createCards(arr) {
   let container = document.querySelector(".card-container");
 
@@ -52,13 +20,16 @@ function createCards(arr) {
     //Create textnode for name, symbol and iexID
     let companyNameValue = document.createTextNode(arr[i]["name"]); //Creating text node and appending name value for arr[i]
     companyName.appendChild(companyNameValue);
-    let companySymbolValue = document.createTextNode(arr[i]["symbol"]); //creating text node and appending symbol value for arr[i]
+    let companySymbolValue = document.createTextNode(
+      `Company Symbol: ${arr[i]["symbol"]}`
+    ); //creating text node and appending symbol value for arr[i]
     companySymbol.appendChild(companySymbolValue);
-    let companyIDValue = document.createTextNode(arr[i]["iexId"]); //creating text node and appending iexID value for arr[i]
+    let companyIDValue = document.createTextNode(`iexID: ${arr[i]["iexId"]}`); //creating text node and appending iexID value for arr[i]
     companyID.appendChild(companyIDValue);
   }
 }
 
+// Function filters on the key up event
 function filterFunction() {
   let searchInput = document.querySelector("#my-input");
   let filter = searchInput.value.toUpperCase();
@@ -69,8 +40,13 @@ function filterFunction() {
     let symbol = card[i].getElementsByClassName(
       "card-container__card-symbol"
     )[0];
-    let textContent = symbol.innerText;
-    if (textContent.toUpperCase().indexOf(filter) > -1) {
+    let name = card[i].getElementsByClassName("card-container__card-name")[0];
+    let symbolContent = symbol.innerText;
+    let nameContent = name.innerText;
+    if (
+      symbolContent.toUpperCase().indexOf(filter) > -1 ||
+      nameContent.toUpperCase().indexOf(filter) > -1
+    ) {
       card[i].style.display = "";
     } else {
       card[i].style.display = "none";
@@ -98,10 +74,11 @@ function getCompanies(data) {
   let filteredData = data.filter(checkName);
   let returnArray = [];
 
-  //Get 100 companies through a loop
-  for (i = 0; i < 100; i++) {
+  while (returnArray.length !== 100) {
     let random = Math.floor(Math.random() * filteredData.length);
-    returnArray.push(filteredData[random]);
+    if (returnArray.indexOf(filteredData[random]) === -1) {
+      returnArray.push(filteredData[random]);
+    }
   }
   console.log(returnArray);
   return returnArray;

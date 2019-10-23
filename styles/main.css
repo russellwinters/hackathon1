@@ -1,0 +1,145 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+* {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  background-image: url(../assets/charging-bull.jpg);
+  background-attachment: fixed;
+  background-size: auto 100%;
+  background-position: 60% 50%;
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  padding: 10px;
+  height: 150px;
+  background-color: black;
+  color: lightgrey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.fixed-header__input {
+  height: 20%;
+  border-radius: 50px;
+}
+
+.card-container {
+  margin-top: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card-container__card {
+  width: 80vw;
+  height: 200px;
+  margin: 10px 0;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: lightgrey;
+  border: 2px solid black;
+  border-radius: 8px;
+}
+
+.card-container__card-name {
+  font-size: 1.5em;
+  text-align: center;
+  padding: 8px;
+}
+
+.card-container__card-symbol {
+  font-size: 1.2em;
+}
+
+.card-container__card-ID {
+  font-size: 1.2em;
+}
+
+@media only screen and (min-width: 768px) {
+  .fixed-header {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .fixed-header__input {
+    margin-left: 30px;
+    height: 35%;
+    font-size: 24px;
+  }
+  .fixed-header__title {
+    margin-right: 30px;
+    font-size: 2.5em;
+  }
+  .card-container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 180px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .card-container__card {
+    width: 35vw;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .card-container__card {
+    width: 30%;
+  }
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,102 @@
+body {
+  background-image: url(../assets/charging-bull.jpg);
+  background-attachment: fixed;
+  background-size: auto 100%;
+  background-position: 60% 50%;
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  padding: 10px;
+  height: 150px;
+  background-color: black;
+  color: lightgrey;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  align-items: center;
+
+  &__input {
+    height: 20%;
+    border-radius: 50px;
+  }
+}
+
+.card-container {
+  margin-top: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__card {
+    width: 80vw;
+    height: 200px;
+    margin: 10px 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(0.3, 0.3, 0.3, 0.5);
+    color: lightgrey;
+    border: 2px solid black;
+    border-radius: 8px;
+
+    &-name {
+      font-size: 1.5em;
+      text-align: center;
+      padding: 8px;
+    }
+
+    &-symbol {
+      font-size: 1.2em;
+    }
+
+    &-ID {
+      font-size: 1.2em;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .fixed-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__input {
+      margin-left: 30px;
+      height: 35%;
+      font-size: 24px;
+    }
+
+    &__title {
+      margin-right: 30px;
+      font-size: 2.5em;
+    }
+  }
+
+  .card-container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 180px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    &__card {
+      width: 35vw;
+      text-align: center;
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .card-container {
+    &__card {
+      width: 30%;
+    }
+  }
+}
