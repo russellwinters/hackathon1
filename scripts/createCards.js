@@ -54,7 +54,7 @@ function createCards(arr) {
     companyName.appendChild(companyNameValue);
     let companySymbolValue = document.createTextNode(arr[i]["symbol"]); //creating text node and appending symbol value for arr[i]
     companySymbol.appendChild(companySymbolValue);
-    let companyIDValue = document.createTextNode(arr[i]["iexID"]); //creating text node and appending iexID value for arr[i]
+    let companyIDValue = document.createTextNode(arr[i]["iexId"]); //creating text node and appending iexID value for arr[i]
     companyID.appendChild(companyIDValue);
   }
 }
@@ -78,4 +78,33 @@ function filterFunction() {
   }
 }
 
-createCards(testArr);
+//function that will access API Data
+
+function getData(url) {
+  axios.get(url).then(response => {
+    let companyArr = getCompanies(response.data);
+    createCards(companyArr);
+  });
+}
+
+//function to check arrays for a name
+function checkName(item) {
+  return item.name !== "";
+}
+
+//function to get random companies from the api data
+function getCompanies(data) {
+  //filter out objects without a name
+  let filteredData = data.filter(checkName);
+  let returnArray = [];
+
+  //Get 100 companies through a loop
+  for (i = 0; i < 100; i++) {
+    let random = Math.floor(Math.random() * filteredData.length);
+    returnArray.push(filteredData[random]);
+  }
+  console.log(returnArray);
+  return returnArray;
+}
+
+getData("https://api.iextrading.com/1.0/ref-data/symbols");
